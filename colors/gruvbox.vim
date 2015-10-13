@@ -86,7 +86,7 @@ let s:is_dark=(&background == 'dark')
 let s:gb = {}
 
 " fill it with absolute colors
-let s:gb.dark0_hard  = ['#1d2021', 234]     " 29-32-33
+let s:gb.dark0_hard  = ['#161414', 234]     " 29-32-33
 let s:gb.dark0       = ['#282828', 235]     " 40-40-40
 let s:gb.dark0_soft  = ['#32302f', 236]     " 50-48-47
 let s:gb.dark1       = ['#3c3836', 237]     " 60-56-54
@@ -403,9 +403,9 @@ call s:HL('GruvboxGreenBold', s:green, s:none, s:bold)
 call s:HL('GruvboxYellow', s:yellow)
 call s:HL('GruvboxYellowBold', s:yellow, s:none, s:bold)
 call s:HL('GruvboxBlue', s:blue)
-" call s:HL('GruvboxBlueBold', s:blue, s:none, s:bold)
+call s:HL('GruvboxBlueBold', s:blue, s:none, s:bold)
 call s:HL('GruvboxPurple', s:purple)
-" call s:HL('GruvboxPurpleBold', s:purple, s:none, s:bold)
+call s:HL('GruvboxPurpleBold', s:purple, s:none, s:bold)
 call s:HL('GruvboxAqua', s:aqua)
 call s:HL('GruvboxAquaBold', s:aqua, s:none, s:bold)
 call s:HL('GruvboxOrange', s:orange)
@@ -535,20 +535,20 @@ else
   call s:HL('Special', s:bg1, s:orange, s:italic)
 endif
 
-call s:HL('Comment', s:gray, s:none, s:italicize_comments)
+call s:HL('Comment', s:gray, s:none, s:bold . s:italicize_comments)
 call s:HL('Todo', s:vim_fg, s:vim_bg, s:bold . s:italic)
 call s:HL('Error', s:red, s:vim_bg, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement GruvboxRed
+hi! link Statement GruvboxRedBold
 " if, then, else, endif, swicth, etc.
-hi! link Conditional GruvboxRed
+hi! link Conditional GruvboxRedBold
 " for, do, while, etc.
-hi! link Repeat GruvboxRed
+hi! link Repeat GruvboxRedBold
 " case, default, etc.
-hi! link Label GruvboxRed
+hi! link Label GruvboxRedBold
 " try, catch, throw
-hi! link Exception GruvboxRed
+hi! link Exception GruvboxRedBold
 " sizeof, "+", "*", etc.
 hi! link Operator Normal
 " Any other keyword
@@ -560,39 +560,39 @@ hi! link Identifier GruvboxBlue
 hi! link Function GruvboxGreenBold
 
 " Generic preprocessor
-hi! link PreProc GruvboxAqua
+hi! link PreProc GruvboxAquaBold
 " Preprocessor #include
-hi! link Include GruvboxAqua
+hi! link Include GruvboxAquaBold
 " Preprocessor #define
-hi! link Define GruvboxAqua
+hi! link Define GruvboxAquaBold
 " Same as Define
-hi! link Macro GruvboxAqua
+hi! link Macro GruvboxAquaBold
 " Preprocessor #if, #else, #endif, etc.
-hi! link PreCondit GruvboxAqua
+hi! link PreCondit GruvboxAquaBold
 
 " Generic constant
-hi! link Constant GruvboxPurple
+hi! link Constant GruvboxPurpleBold
 " Character constant: 'c', '/n'
 hi! link Character GruvboxPurple
 " String constant: "this is a string"
 if g:gruvbox_improved_strings == 0
-  call s:HL('String',  s:green, s:none, s:italicize_strings)
+  call s:HL('String',  s:green, s:none, s:bold . s:italicize_strings)
 else
-  call s:HL('String',  s:bg1, s:fg1, s:italicize_strings)
+  call s:HL('String',  s:bg1, s:fg1, s:bold . s:italicize_strings)
 endif
 " Boolean constant: TRUE, false
-hi! link Boolean GruvboxPurple
+hi! link Boolean GruvboxPurpleBold
 " Number constant: 234, 0xff
-hi! link Number GruvboxPurple
+hi! link Number GruvboxPurpleBold
 " Floating point constant: 2.3e10
-hi! link Float GruvboxPurple
+hi! link Float GruvboxPurpleBold
 
 " Generic type
-hi! link Type GruvboxYellow
+hi! link Type GruvboxYellowBold
 " static, register, volatile, etc
-hi! link StorageClass GruvboxOrange
+hi! link StorageClass GruvboxOrangeBold
 " struct, union, enum, etc.
-hi! link Structure GruvboxAqua
+hi! link Structure GruvboxAquaBold
 " typedef
 hi! link Typedef GruvboxYellow
 
@@ -903,8 +903,10 @@ hi! link clojureUnquote GruvboxYellow
 " }}}
 " C: {{{
 
-hi! link cOperator GruvboxPurple
-hi! link cStructure GruvboxOrange
+hi! link cOperator GruvboxPurpleBold
+hi! link cStructure GruvboxOrangeBold
+hi! link cIncluded GruvboxGreenBold
+"hi! link cDefine GruvboxGreenBold
 
 " }}}
 " Python: {{{
