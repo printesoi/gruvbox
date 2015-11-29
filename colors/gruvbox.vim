@@ -391,10 +391,15 @@ endfunction
 " memoize common hi groups
 call s:HL('GruvboxFg0', s:fg0)
 call s:HL('GruvboxFg1', s:fg1)
+call s:HL('GruvboxFg2', s:fg2)
 call s:HL('GruvboxFg3', s:fg3)
 call s:HL('GruvboxFg4', s:fg4)
 call s:HL('GruvboxGray', s:gray)
+call s:HL('GruvboxBg0', s:bg0)
+call s:HL('GruvboxBg1', s:bg1)
 call s:HL('GruvboxBg2', s:bg2)
+call s:HL('GruvboxBg3', s:bg3)
+call s:HL('GruvboxBg4', s:bg4)
 
 call s:HL('GruvboxRed', s:red)
 call s:HL('GruvboxRedBold', s:red, s:none, s:bold)
